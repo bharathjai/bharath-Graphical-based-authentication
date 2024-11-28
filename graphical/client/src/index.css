@@ -1,0 +1,144 @@
+/* Tailwind Base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+body {
+  @apply bg-white text-black font-sans;
+}
+
+/* Parallax Effect */
+.parallax-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Smooth Fade-In Effect */
+.fade-enter {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s, transform 1s;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+/* Navbar Sticky */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  @apply bg-opacity-90 backdrop-blur-md shadow-md; /* Tailwind utilities */
+  transition: all 0.3s ease;
+}
+
+/* Button Styling */
+button {
+  @apply bg-gradient-to-r from-[#FF6F61] to-[#D32F2F] text-white border-none py-3 px-8 rounded-lg text-lg;
+  transition: background 0.3s ease-in-out, transform 0.3s ease;
+}
+
+/* Hover Effect */
+button:hover {
+  background: linear-gradient(135deg, #D32F2F, #FF6F61); /* Reverse gradient on hover */
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Focus Effect */
+button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 111, 97, 0.6); /* Glow effect when focused */
+}
+
+/* Active Button Effect (on click) */
+button:active {
+  transform: scale(0.95); /* Slight shrink when clicked */
+  background: linear-gradient(135deg, #D32F2F, #FF6F61); /* Active gradient */
+}
+
+/* Disabled Button */
+button:disabled {
+  background: linear-gradient(135deg, #B0B0B0, #D8D8D8); /* Disabled gradient */
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .parallax-background {
+    background-position: center center;
+    background-size: cover;
+  }
+
+  /* Mobile-Friendly Navbar */
+  .navbar {
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  @apply py-16 px-4 text-center bg-cover bg-center rounded-lg;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://source.unsplash.com/1920x1080/?nature,landscape');
+  color: white;
+}
+
+.hero-section h1 {
+  @apply text-4xl sm:text-5xl font-bold mb-4;
+}
+
+.hero-section p {
+  @apply text-xl sm:text-2xl mb-6;
+}
+
+/* Custom Tailwind Gradient Background for Buttons */
+.bg-gradient-to-r {
+  background: linear-gradient(135deg, black, #B5B4D9);
+}
+
+/* Tailwind Dark Mode Styling (Optional) */
+.dark {
+  @apply bg-gray-800 text-white;
+}
+
+.dark .navbar {
+  @apply bg-gray-900 text-white;
+}
+/* Fade-In Animation */
+.fade-in-container {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
